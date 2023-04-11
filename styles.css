@@ -39,6 +39,11 @@ html, body{
 .obstacle-preview img {
     height: 100px;
     padding: 30px;
+    transition: transform .3s;
+}
+
+.obstacle-preview img:hover{
+    transform: scale(1.1);
 }
 
 #start-button{
@@ -49,12 +54,14 @@ html, body{
     font-weight: 800;
     width: 20%;
     font-size: 1rem;
+    transition: transform .3s;
 
 }
 
 #start-button:hover{
     cursor: pointer;
     background-color: rgba(73, 133, 53, .5);
+    transform: scale(1.1);
 }
 
 
@@ -124,9 +131,11 @@ html, body{
     font-weight: 800;
     width: 20%;
     font-size: 1rem;
+    transition: transform .3s;
 }
 
 .options button:hover{
     cursor: pointer;
     background-color: rgba(73, 133, 53, .5);
+    transform: scale(1.1);
 }

@@ -12,7 +12,6 @@ window.onload = () => {
     const startScreen = document.querySelector('.start-game');
     const startBtn = document.querySelector('#start-button');
     const restartBtn = document.querySelector('#restart')
-    //const homeBtn = document.querySelector('#home-screen')
     const endScreen = document.querySelector('#game-over');
     endScreen.style.display = 'none' 
     
@@ -68,8 +67,8 @@ window.onload = () => {
     //+ obstacle classes, functions
     class Obstacle {
         constructor() {
-            this.width = 70;
-            this.height = 80;
+            this.width = 50;
+            this.height = 70;
             this.x = 1000 - this.width;
             this.y = Math.random()*(canvas.height-this.height);
             this.speed = 1.5;
@@ -121,8 +120,8 @@ window.onload = () => {
 
     class Obstacle2 {
         constructor() {
-            this.width = 70;
-            this.height = 80;
+            this.width = 50;
+            this.height = 70;
             this.x = 1000 - this.width;
             this.y = Math.random()*(canvas.height-this.height);
             this.speed = 1.5;
@@ -177,6 +176,7 @@ window.onload = () => {
 
     //animation
     const animate = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     /*//moving background 1
     ctx.drawImage(bgImg, 0, bg1x, canvas.width, canvas.height);
     //moving background 2
@@ -193,8 +193,8 @@ window.onload = () => {
     if(bg2x > canvas.width){
         bg2x = -canvas.width;
     }*/
-    ctx.drawImage(bgImg, 0,0, canvas.width, canvas.height)
-    drawPlayer()
+    ctx.drawImage(bgImg, 0,0, canvas.width, canvas.height);
+    drawPlayer();
         
         if(isMovingLeft && playerX > 0){
             playerX -= playerSpeed
@@ -209,7 +209,7 @@ window.onload = () => {
             playerY -= playerSpeed
             };
 
-        if(animateId % 100 === 0){
+        if(animateId % 200 === 0){
         addPump(); 
         addHiker();
         posObstCollision();
@@ -221,16 +221,16 @@ window.onload = () => {
             updateHiker();
 
         if(lives === 0){
-            cancelAnimationFrame(animateId)
-            gameIsOver()
-            console.log("game over")
+            cancelAnimationFrame(animateId);
+            gameIsOver();
+            console.log("game over");
         }else{
-            animateId = requestAnimationFrame(animate)
+            animateId = requestAnimationFrame(animate);
         };
     };
 
     function startGame () {
-        console.log('Put that helmet on, its going to get bumpy')
+        console.log('Put that helmet on, its going to get bumpy');
         startScreen.style.display = 'none';
         endScreen.style.display = 'none';
         canvas.style.display = 'block';
@@ -238,7 +238,6 @@ window.onload = () => {
         lifeAmount.style.display = 'block';
 
         animate()
-
     };
 
     function gameIsOver () {
@@ -250,36 +249,9 @@ window.onload = () => {
         lifeAmount.style.display = 'none';
         endScreen.style.display = 'block';
         restartBtn.style.display = 'block';
-
-        
     };
 
-    /*homeBtn.addEventListener('click', () => {
-        startScreen.style.display = 'block'
-        canvas.style.display = 'none';
-        scoreAmount.style.display = 'none';
-        lifeAmount.style.display = 'none';
-        endScreen.style.display = 'none';
-
-        isMovingLeft = false;
-        isMovingRight = false;
-        isMovingUp = false;
-        isMovingDown = false;
-        playerX = 80;
-        playerY = 300;
-        playerWidth = 70;
-        playerHeight = 70;
-        playerSpeed = 4;
-
-       //game misc. variables
-        animateId = 0;
-
-       //score
-        yourScore = 0;
-        lives = 4;
-    });*/
-
-    startBtn.addEventListener('click', startGame)
+    startBtn.addEventListener('click', startGame);
 
     restartBtn.addEventListener('click', () => {
         restartBtn.style.display = 'none';
@@ -300,14 +272,19 @@ window.onload = () => {
          playerSpeed = 4;
 
         //game misc. variables
-         
          animateId = 0;
 
         //score
          yourScore = 0;
+         scoreAmount.innerText = 'Your Score:' + yourScore
          lives = 4;
+         lifeAmount.innerText = 'Lives left:' + lives
+         
+        //clear arrays
+        positiveArr = [];
+        negativeArr = [];
 
-        startGame()
+        startGame();
     });
 
     document.addEventListener('keydown', event => {

@@ -5,36 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Ride for Your life</title>
+    <title>The Daily Ride</title>
 </head>
 <body>
-    <div class="container">
         <div class="start-game">
-            <img src="./Images/Ride for your life.png" alt="" class="game-logo" />
-            <h1>RIDE FOR YOUR LIFE</h1>
-            <br/>
+            <h1>The Daily Ride</h1>
+            
+            <p>Just another typical day as a cyclist, Use "A","D","W" and "S" to keep away from hikers, but also keep your eye out for helpful items to increase your score!</p>
+
+                <div class="obstacle-preview">
+                    <img src="./Images/hiker.png" alt="" class="hiker">
+                    <img src="./Images/pump.png" alt="" class="pump">
+                </div>
+    
             <button id="start-button">Start Game</button>
-            <p>Is there even a bottom to this run...or am I going to be riding forever? Use "A" and "D" to keep away from a bikers arch nemesis - trees and rocks, but also to pick up helpful supplies on the way down</p>
         </div>
     
         <div id="board">
-            <h2 id="your-score">Your Score: 0</h2>
-            <h2 id="lives-left">Lives left: 4</h2>
-    
-          <canvas id="canvas" width="1400" height="500"></canvas>
+            <div class="score-board">
+                <h2 id="your-score">Your Score: 0</h2>
+                <h2 id="lives-left">Lives left: 4</h2>
+            </div>
+            <canvas id="canvas" width="900" height="500"></canvas>
         </div>
     
         <div id="game-over">
-            <h2>Oops, looks like you took a tumble, maybe you need some more air in those tires!</h2>
+            <p>Oops, looks like you took a tumble, maybe you need some more air in those tires!</p>
             <h3 class="score">Your Score:</h3>
         
     
             <div class="options">
-                <button>Restart Game</button>
-                <button>Back to the Home Page to get a refresher on the rules!</button>
+                <button id="restart">Restart Game</button>
+                <!--<button id="home-screen">Back to the Home Page to get a refresher on the rules!</button>-->
             </div>
+
         </div>
-    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,10 +1,132 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Catamaran&family=Righteous&family=Source+Code+Pro:ital,wght@0,400;0,900;1,400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Code Pro';
+}
+
+html, body{
+    height: 100Vh;
+    background: linear-gradient(#498535, #478eb5);
+}
+
+.start-game{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url(./Images/background1.jpg);
+    align-items: center;
+    border: 1px solid black;
+    margin: 70px;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.5);
+    padding-bottom: 30px;
+    padding-top: 30px;
+
+}
+
+.start-game h1{
+    font-weight: 800;
+}
+
+.start-game p{
+    text-align: center;
+    line-height: 2;
+    width: 45%;
 }
 
 
+.obstacle-preview img {
+    height: 100px;
+    padding: 30px;
+}
+
+#start-button{
+    padding: 20px;
+    background-color: rgba(71, 142, 181, .5);
+    border-radius: 5px;
+    color: white;
+    font-weight: 800;
+    width: 20%;
+    font-size: 1rem;
+
+}
+
+#start-button:hover{
+    cursor: pointer;
+    background-color: rgba(73, 133, 53, .5);
+}
 
 
+#board h2{
+    text-transform: uppercase;
+    font-weight: 100;
+    border-radius: 5px;
+    margin: 10px;
+    height: fit-content;
+    width: fit-content;
+    padding: 5px;
+}
+
+#board{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.score-board{
+    display: flex;
+    flex-direction: row;
+    margin-top: 80px;
+}
+
+#canvas{
+    border: 3px solid white;
+    border-radius: 5px;
+}
+
+#game-over{
+    border: 1px solid black;
+    margin: 70px;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.5);
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+#game-over p{
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 20px;
+}
+
+#game-over h3{
+    text-align: center;
+    padding: 10px;
+    font-size: 2rem;
+}
+
+.options{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.options button{
+    padding: 20px;
+    background-color: rgba(71, 142, 181, .5);
+    border-radius: 5px;
+    color: white;
+    font-weight: 800;
+    width: 20%;
+    font-size: 1rem;
+}
+
+.options button:hover{
+    cursor: pointer;
+    background-color: rgba(73, 133, 53, .5);
+}

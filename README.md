@@ -14,9 +14,9 @@
     <li>Ability to restart</li>
     <li>Win/Lose Logic</li>
     <li>Bonus: Local Storage, Audio.</li>
-<ul>
+</ul>
 
-<span?>All of these conditions have been met in "The Daily Ride":</span>
+<span>All of these conditions have been met in "The Daily Ride":</span>
 
 <ul>
     <li>A single HTML page, 3 states are controlled in JS document</li>
@@ -47,7 +47,7 @@ I have a list of items that I would like to add to the game:
 
 <h3>For what I refer to as the negative (life decreasing) obstacle:</h3>
 <ul>
-    <li>class Obstacle2{}<li>
+    <li>class Obstacle2{}</li>
     <li>addHiker()</li>
     <li>drawHiker()</li>
     <li>updateHiker()</li>
@@ -83,9 +83,9 @@ I have a list of items that I would like to add to the game:
 
 <h2>Links:</h2>
 <ul>
-    <li><a href=" https://www.figma.com/file/dgm66oDqWlOGV89hJ069cA/Ride-for-Your-life-Game?node-id=0-1&t=sbHPtgiBBnkbmlVO-0"> First concept on figma</a></li>
+    <li><a href="https://www.figma.com/file/dgm66oDqWlOGV89hJ069cA/Ride-for-Your-life-Game?node-id=0-1&t=sbHPtgiBBnkbmlVO-0"> First concept on figma</a></li>
     <li><a href="https://trello.com/b/YgcNoobj/module-1-final-project">Trello board to help keep track of backlog and complete MVP requirements</a></li>
-    <li><a href=""> slides</a></li>
+    <li><a href="https://docs.google.com/presentation/d/1H0Ngy2HWqggF6PqjDD0QrP8RXBdUQldejBxaNs5nto0/edit#slide=id.p">Presentation Slides</a></li>
     <li><a href="https://github.com/augustcolonna/The-Daily-Ride">GitHub Repo</a></li>
     <li><a href="https://augustcolonna.github.io/The-Daily-Ride/">Click here to play at the deployed link!</a></li>
 </ul>

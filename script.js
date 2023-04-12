@@ -165,13 +165,11 @@ window.onload = () => {
         });
     };
 
-        function drawPlayer () {
-            ctx.drawImage(player, playerX, playerY, playerWidth, playerHeight)
+    function drawPlayer () {
+        ctx.drawImage(player, playerX, playerY, playerWidth, playerHeight)
     };
 
-    function backgroundLoop () {
-        ctx.drawImage(bgImg)
-    }
+ 
 
     //animation
     const animate = () => {

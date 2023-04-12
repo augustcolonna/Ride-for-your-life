@@ -14,13 +14,13 @@ window.onload = () => {
     const restartBtn = document.querySelector('#restart')
     const endScreen = document.querySelector('#game-over');
     endScreen.style.display = 'none' 
-    
+
     //images for the game
     const bgImg = new Image()
     bgImg.src = './Images/background2.jpg'
 
-    //let bg1x = 0;
-    //let bg2x = -canvas-width;
+    let bg1x = 0;
+    let bg2x = +canvas.width;
     
     const player = new Image()
     player.src = './Images/bicycle.png'
@@ -28,23 +28,10 @@ window.onload = () => {
     //negative objects
     const hiker = new Image()
     hiker.src = './Images/hiker.png'
-    const pineTree = new Image()
-    pineTree.src = './Images/pine-tree.png'
-    const boulder = new Image()
-    boulder.src = './Images/stone.png'
-
-    const negativeImgArr = ['./Images/hiker.png','./Images/pine-tree.png','./Images/stone.png']
 
     //posisitve objects
-    const water = new Image()
-    water.src = './Images/plastic-bottle.png'
-    const chocolate = new Image()
-    chocolate.src = './Images/chocolate.png'
     const airPump = new Image()
     airPump.src = './Images/pump.png'
-
-    const positiveImgArr = ['./Images/chocolate.png', './Images/pump.png', './Images/plastic-bottle.png']
-
 
     //player movement variables
     let isMovingLeft = false;
@@ -64,6 +51,13 @@ window.onload = () => {
     let yourScore = 0;
     let lives = 4;
 
+    //audio class
+    const posAudio = new Audio('./audio/bicycle_pump.wav')
+    posAudio.volume = .1;
+
+    const negAudio = new Audio('./audio/man-yelling-watch-out.mp3')
+    negAudio.volume = .1;
+
     //+ obstacle classes, functions
     class Obstacle {
         constructor() {
@@ -71,8 +65,8 @@ window.onload = () => {
             this.height = 70;
             this.x = 1000 - this.width;
             this.y = Math.random()*(canvas.height-this.height);
-            this.speed = 1.5;
-            this.img = airPump
+            this.speed = 2;
+            this.img = airPump;
         };
         drawObstacle() {
             ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
@@ -104,10 +98,11 @@ window.onload = () => {
                 playerX + playerWidth > element.x &&
                 playerY < element.y + element.height &&
                 playerY + playerHeight > element.y){
-                    
-                    element.x = 2000
-
                     yourScore += 1
+
+                    posAudio.play()
+
+                    element.x = 2000
                     
                     scoreAmount.innerText = 'Your Score:' + yourScore
 
@@ -117,14 +112,13 @@ window.onload = () => {
     };
 
     //- obstacle classes, functions
-
     class Obstacle2 {
         constructor() {
             this.width = 50;
             this.height = 70;
             this.x = 1000 - this.width;
             this.y = Math.random()*(canvas.height-this.height);
-            this.speed = 1.5;
+            this.speed = 1.75;
             this.img = hiker;
         };
         drawObstacle2() {
@@ -158,10 +152,11 @@ window.onload = () => {
                 playerX + playerWidth > element.x &&
                 playerY < element.y + element.height &&
                 playerY + playerHeight > element.y){
-                    
-                    element.x = 2000
-                    
                     lives -= 1
+
+                    negAudio.play()
+
+                    element.x = 2000
                     
                     lifeAmount.innerText = 'Lives left:' + lives
 
@@ -174,25 +169,29 @@ window.onload = () => {
             ctx.drawImage(player, playerX, playerY, playerWidth, playerHeight)
     };
 
+    function backgroundLoop () {
+        ctx.drawImage(bgImg)
+    }
+
     //animation
     const animate = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    /*//moving background 1
-    ctx.drawImage(bgImg, 0, bg1x, canvas.width, canvas.height);
+    //moving background 1
+    ctx.drawImage(bgImg, bg1x, 0, canvas.width, canvas.height);
     //moving background 2
-    ctx.drawImage(bgImg, 0, bg2x, canvas.width, canvas.height);
+    ctx.drawImage(bgImg, bg2x, 0, canvas.width, canvas.height);
 
     //make them move
-    bg1x += playerSpeed
-    bg2x += playerSpeed
+    bg1x -= playerSpeed
+    bg2x -= playerSpeed
 
     //check for end of backround
     if(bg1x > canvas.width){
-        bg1x = -canvas.width;
+        bg1x = +canvas.width;
     }
     if(bg2x > canvas.width){
-        bg2x = -canvas.width;
-    }*/
+        bg2x = +canvas.width;
+    }
     ctx.drawImage(bgImg, 0,0, canvas.width, canvas.height);
     drawPlayer();
         
@@ -209,16 +208,16 @@ window.onload = () => {
             playerY -= playerSpeed
             };
 
-        if(animateId % 200 === 0){
+        if(animateId % 100 === 0){
         addPump(); 
         addHiker();
-        posObstCollision();
-        negObstCollision();
         }
             drawPump();
             drawHiker();
             updatePump();
             updateHiker();
+            posObstCollision();
+            negObstCollision();
 
         if(lives === 0){
             cancelAnimationFrame(animateId);

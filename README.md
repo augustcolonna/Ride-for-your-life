@@ -1,7 +1,5 @@
 # The-Daily-Ride
 
-<h1>The Daily Ride</h1>
-
 <a href="https://augustcolonna.github.io/The-Daily-Ride/">Click here to play</a>
 
 <h2>Description</h2>
@@ -26,7 +24,7 @@
 </ul>
 
 <h2>Backlog</h2>
-I have a list of items that I would like to add to the game:
+<span>I have a list of items that I would like to add to the game:</span>
 <ul>
     <li>Moving background</li>
     <li>High Score-board</li>

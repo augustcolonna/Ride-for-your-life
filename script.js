@@ -1,63 +1,63 @@
+  //canvas board
+  const canvas = document.querySelector('canvas')
+  const ctx = canvas.getContext('2d')
+  const scoreAmount = document.querySelector('#your-score')
+  const lifeAmount = document.querySelector('#lives-left')
+  canvas.style.display = 'none'
+  scoreAmount.style.display = 'none';
+  lifeAmount.style.display = 'none';
+
+  //game states
+  const startScreen = document.querySelector('.start-game');
+  const startBtn = document.querySelector('#start-button');
+  const restartBtn = document.querySelector('#restart')
+  const endScreen = document.querySelector('#game-over');
+  endScreen.style.display = 'none' 
+
+  //images for the game
+  const bgImg = new Image()
+  bgImg.src = './Images/background2.jpg'
+
+  let bg1x = 0;
+  let bg2x = canvas.width;
+  
+  const player = new Image()
+  player.src = './Images/bicycle.png'
+  
+  //negative objects
+  const hiker = new Image()
+  hiker.src = './Images/hiker.png'
+
+  //posisitve objects
+  const airPump = new Image()
+  airPump.src = './Images/pump.png'
+
+  //player movement variables
+  let isMovingLeft = false;
+  let isMovingRight = false;
+  let isMovingUp = false;
+  let isMovingDown = false;
+  let playerX = 80;
+  let playerY = 300;
+  let playerWidth = 70;
+  let playerHeight = 70;
+  let playerSpeed = 4;
+
+  //game misc. variables
+  let animateId = 0;
+
+  //score
+  let yourScore = 0;
+  let lives = 4;
+
+  //audio class
+  const posAudio = new Audio('./audio/bicycle_pump.wav')
+  posAudio.volume = .1;
+
+  const negAudio = new Audio('./audio/man-yelling-watch-out.mp3')
+  negAudio.volume = .1;
+
 window.onload = () => {
-    //canvas board
-    const canvas = document.querySelector('canvas')
-    const ctx = canvas.getContext('2d')
-    const scoreAmount = document.querySelector('#your-score')
-    const lifeAmount = document.querySelector('#lives-left')
-    canvas.style.display = 'none'
-    scoreAmount.style.display = 'none';
-    lifeAmount.style.display = 'none';
-
-    //game states
-    const startScreen = document.querySelector('.start-game');
-    const startBtn = document.querySelector('#start-button');
-    const restartBtn = document.querySelector('#restart')
-    const endScreen = document.querySelector('#game-over');
-    endScreen.style.display = 'none' 
-
-    //images for the game
-    const bgImg = new Image()
-    bgImg.src = './Images/background2.jpg'
-
-    let bg1x = 0;
-    let bg2x = +canvas.width;
-    
-    const player = new Image()
-    player.src = './Images/bicycle.png'
-    
-    //negative objects
-    const hiker = new Image()
-    hiker.src = './Images/hiker.png'
-
-    //posisitve objects
-    const airPump = new Image()
-    airPump.src = './Images/pump.png'
-
-    //player movement variables
-    let isMovingLeft = false;
-    let isMovingRight = false;
-    let isMovingUp = false;
-    let isMovingDown = false;
-    let playerX = 80;
-    let playerY = 300;
-    let playerWidth = 70;
-    let playerHeight = 70;
-    let playerSpeed = 4;
-
-    //game misc. variables
-    let animateId = 0;
-
-    //score
-    let yourScore = 0;
-    let lives = 4;
-
-    //audio class
-    const posAudio = new Audio('./audio/bicycle_pump.wav')
-    posAudio.volume = .1;
-
-    const negAudio = new Audio('./audio/man-yelling-watch-out.mp3')
-    negAudio.volume = .1;
-
     //+ obstacle classes, functions
     class Obstacle {
         constructor() {
@@ -169,8 +169,6 @@ window.onload = () => {
         ctx.drawImage(player, playerX, playerY, playerWidth, playerHeight)
     };
 
- 
-
     //animation
     const animate = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -180,15 +178,15 @@ window.onload = () => {
     ctx.drawImage(bgImg, bg2x, 0, canvas.width, canvas.height);
 
     //make them move
-    bg1x -= playerSpeed
-    bg2x -= playerSpeed
+    bg1x += playerSpeed
+    bg2x += playerSpeed
 
     //check for end of backround
-    if(bg1x > canvas.width){
-        bg1x = +canvas.width;
+    if(bg1x + canvas.width < 0){
+        bg1x = bg2x + canvas.width;
     }
-    if(bg2x > canvas.width){
-        bg2x = +canvas.width;
+    if(bg2x + canvas.width < 0){
+        bg2x = bg1x + canvas.width;
     }
     ctx.drawImage(bgImg, 0,0, canvas.width, canvas.height);
     drawPlayer();
@@ -313,7 +311,6 @@ window.onload = () => {
             isMovingDown = false;
         } 
     });
-
 }
 
 

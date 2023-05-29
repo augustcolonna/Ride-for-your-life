@@ -3,7 +3,7 @@
 <a href="https://augustcolonna.github.io/The-Daily-Ride/">Click here to play</a>
 
 <h2>Description</h2>
-<p>This is my final project for Ironhack Module 1, I have made a game using HTML, CSS, and Javascript. In this game, you control a playable character with A,S,D, and W around a game board where there are multiple obstacles coming from the right side of the screen. One of the obstacles (the pump) will increase your score, while the other obstascel (the hiker) will decrease your reamining lives. The objective of the game is to collect as many bike pumps as possible while staying away from the hikers. When and if a hiker is touched by the playable character, the player loses a life, and if you lose 4 lives, the game ends and you have the ability to start over again.</p>
+<p>Ironhack Module 1 project - I have made a game using HTML, CSS, and Javascript. In this game, you control a playable character with A,S,D, and W around a game board where there are multiple obstacles coming from the right side of the screen. One of the obstacles (the pump) will increase your score, while the other obstascel (the hiker) will decrease your reamining lives. The objective of the game is to collect as many bike pumps as possible while staying away from the hikers. When and if a hiker is touched by the playable character, the player loses a life, and if you lose 4 lives, the game ends and you have the ability to start over again.</p>
 
 <h2>MVP</h2>
 <span>The minimum features required for this game were:</span>
